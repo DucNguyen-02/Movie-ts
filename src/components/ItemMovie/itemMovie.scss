@@ -1,0 +1,19 @@
+.list {
+    &-item {
+        transition: all 0.2s linear;
+        &-name {
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        &:hover {
+            transform: translateY(-10px);
+
+            & .list-item-name {
+                color: red;
+            }
+        }
+    }
+}

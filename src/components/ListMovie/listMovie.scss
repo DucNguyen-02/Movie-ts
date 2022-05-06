@@ -1,0 +1,23 @@
+.list {
+    padding-left: 30px;
+    margin-top: 25px;
+
+    &-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        margin-bottom: 10px;
+    }
+
+    &-btn {
+        &-viewmore {
+            background-color: transparent;
+            border: 1px solid #fff !important;
+            border-radius: 6px !important;
+            &:hover {
+                background-color: red;
+            }
+        }
+    }
+}

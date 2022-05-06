@@ -1,0 +1,71 @@
+.banner {
+    position: relative;
+    &-background {
+        background-image: url('https://image.tmdb.org/t/p/original//5P8SmMzSNYikXpxil6BYzJ16611.jpg');
+        width: 100vw;
+        height: 100vh;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    &-background::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(51, 51, 51, 0.712);
+    }
+
+    &-content {
+        position: absolute;
+        top: 50%;
+        left: 7%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    &-title {
+        color: #fff;
+        font-size: 2em;
+        font-weight: 700;
+    }
+
+    &-desc {
+        width: 60vw;
+        color: #fff;
+        font-size: 1em;
+    }
+
+    &-btn {
+        display: flex;
+        margin: 10px 0;
+        &-play {
+            background-color: red;
+            color: #fff;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 20px;
+            border-radius: 4px;
+        }
+
+        &-info {
+            background-color: #888;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 20px;
+            border-radius: 4px;
+        }
+    }
+
+    &-icon {
+        font-size: 12px;
+        margin-right: 6px;
+    }
+}

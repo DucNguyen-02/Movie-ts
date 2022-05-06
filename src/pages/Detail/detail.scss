@@ -1,0 +1,22 @@
+.detail {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 50%;
+    left: 8%;
+    transform: translateY(calc(-50% + 20px));
+    z-index: 100;
+
+    color: #fff;
+
+    &-img {
+        width: 25%;
+        margin-right: 30px;
+    }
+
+    &-desc {
+        padding: 0 2rem 0 0;
+        margin: 20px 0;
+        font-size: 1rem;
+    }
+}

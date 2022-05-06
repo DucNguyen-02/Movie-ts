@@ -1,0 +1,20 @@
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.mbtn {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: #111;
+}

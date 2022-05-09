@@ -1,4 +1,4 @@
-const API_KEY: string = '95c111c84f32430b8d06d4d47c942880'
+const API_KEY: string | undefined = process.env.REACT_APP_API_KEY
 const URL: string = `https://api.themoviedb.org/3`
 const BASE_URL: string = 'https://image.tmdb.org/t/p/original/'
 const URL_FILM: string = 'https://www.2embed.ru/embed/imdb/movie?id='

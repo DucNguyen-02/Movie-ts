@@ -43,7 +43,6 @@ const ListMovie = ({ type, title, fetchURL }: ListMovieInterface) => {
     if (loading) {
         return <h2>Loading...</h2>
     }
-
     return (
         <div className="list">
             <h2 className="list-title">{title}</h2>

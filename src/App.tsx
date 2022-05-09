@@ -2,7 +2,6 @@ import React from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header/Header'
 import { publicRoute } from './routes'
-
 const App: React.FC = () => {
     const location = useLocation()
     return (

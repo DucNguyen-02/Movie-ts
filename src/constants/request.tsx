@@ -2,8 +2,6 @@ const API_KEY: string | undefined = process.env.REACT_APP_API_KEY
 const URL: string = `https://api.themoviedb.org/3`
 const BASE_URL: string = 'https://image.tmdb.org/t/p/original/'
 const URL_FILM: string = 'https://www.2embed.ru/embed/imdb/movie?id='
-console.log(API_KEY)
-console.log(process.env.REACT_APP_API_KEY)
 
 const requests = {
     fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,

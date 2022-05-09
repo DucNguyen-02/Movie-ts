@@ -39,7 +39,7 @@ const Header = () => {
                 </div>
                 <ul className="header-list nav">
                     <li className="header-item nav-item">
-                        <Link to="/">Home</Link>
+                        <Link to="/">Home2</Link>
                     </li>
                     <li className="header-item nav-item">
                         <Link to="/movies">Movies</Link>

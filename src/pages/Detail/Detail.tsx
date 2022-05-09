@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
 import { API_KEY, BASE_URL, URL } from '../../constants/request'
+import { setMovieAtLocal } from '../../ulti/localStorage'
 import Title from '../../ulti/Title'
 import './detail.scss'
 
 const Detail = () => {
     const [loading, setLoading] = useState<boolean>(true)
-    const [movie, setMovie] = useState<any>()
     const { type, id } = useParams<string>()
+    const [movie, setMovie] = useState<any>({})
     const fetchMovie = async (): Promise<void> => {
         const resp = await axios.get(`${URL}/${type}/${id}?api_key=${API_KEY}`)
         setMovie(resp.data)
@@ -19,6 +20,16 @@ const Detail = () => {
     useEffect(() => {
         fetchMovie()
     }, [])
+
+    useEffect(() => {
+        let movieType = type === 'tv' ? movie?.id : movie?.imdb_id
+        setMovieAtLocal({
+            id: movieType,
+            name: movie?.original_title || movie?.name,
+            poster_path: movie?.poster_path,
+            media_type: type,
+        })
+    }, [movie])
 
     if (loading) {
         return <h2>Loading...</h2>

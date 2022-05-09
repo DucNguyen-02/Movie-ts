@@ -47,6 +47,13 @@ interface TitleInterface {
     title: string
 }
 
+interface RecentlyInterface {
+    id: string
+    name: string
+    poster_path: string
+    media_type: string | undefined
+}
+
 export type {
     BannerInterface,
     ListMovieInterface,
@@ -55,4 +62,5 @@ export type {
     SearchInterface,
     MoviesInterface,
     TitleInterface,
+    RecentlyInterface,
 }

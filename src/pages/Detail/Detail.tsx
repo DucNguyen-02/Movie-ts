@@ -1,25 +1,20 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { FaPlay } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
+import movieApi from '../../apis/movieAPI'
 import { API_KEY, BASE_URL, URL } from '../../constants/request'
+import useFetch from '../../hooks/useFetch'
 import { setMovieAtLocal } from '../../ulti/localStorage'
 import Title from '../../ulti/Title'
 import './detail.scss'
 
 const Detail = () => {
-    const [loading, setLoading] = useState<boolean>(true)
     const { type, id } = useParams<string>()
-    const [movie, setMovie] = useState<any>({})
-    const fetchMovie = async (): Promise<void> => {
-        const resp = await axios.get(`${URL}/${type}/${id}?api_key=${API_KEY}`)
-        setMovie(resp.data)
-        setLoading(false)
-    }
 
-    useEffect(() => {
-        fetchMovie()
-    }, [])
+    const { data: movie }: any = useFetch({
+        fetcher: movieApi.getMovieDetail,
+        url: `${URL}/${type}/${id}?api_key=${API_KEY}`,
+    })
 
     useEffect(() => {
         let movieType = type === 'tv' ? movie?.id : movie?.imdb_id
@@ -30,10 +25,6 @@ const Detail = () => {
             media_type: type,
         })
     }, [movie])
-
-    if (loading) {
-        return <h2>Loading...</h2>
-    }
 
     return (
         <div
@@ -59,6 +50,10 @@ const Detail = () => {
                         Release date:{' '}
                         {movie?.release_date || movie?.first_air_date}
                     </p>
+                    <div
+                        className="Stars"
+                        aria-label="Rating of this product is 2.3 out of 5."
+                    ></div>
                     <Link
                         to={
                             type === 'tv'

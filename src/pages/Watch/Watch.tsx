@@ -18,7 +18,7 @@ const Watch = () => {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=1&e=${esp}`}
+                    src={`https://2embed.org/embed/${id}/1/${esp}`}
                     title="Movie player"
                     frameBorder="0"
                     allowFullScreen

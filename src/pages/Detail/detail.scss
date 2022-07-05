@@ -20,3 +20,28 @@
         font-size: 1rem;
     }
 }
+
+:root {
+    --star-size: 60px;
+    --star-color: #fff;
+    --star-background: #fc0;
+}
+
+.Stars {
+    --percent: calc(var(10) / 5 * 100%);
+
+    display: inline-block;
+    font-size: var(--star-size);
+    line-height: 1;
+
+    &::before {
+        content: '★★★★★';
+        letter-spacing: 3px;
+        background: linear-gradient(
+            90deg,
+            var(--star-background) var(--percent),
+            var(--star-color) var(--percent)
+        );
+        -webkit-text-fill-color: transparent;
+    }
+}

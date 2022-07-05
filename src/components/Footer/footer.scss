@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: rgb(123, 122, 122);
+
+    &-icon {
+        font-size: 24px;
+        margin-left: 6px;
+    }
+}

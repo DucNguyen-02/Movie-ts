@@ -54,6 +54,10 @@ interface RecentlyInterface {
     media_type: string | undefined
 }
 
+interface Props {
+    children: React.ReactNode
+}
+
 export type {
     BannerInterface,
     ListMovieInterface,
@@ -63,4 +67,5 @@ export type {
     MoviesInterface,
     TitleInterface,
     RecentlyInterface,
+    Props,
 }

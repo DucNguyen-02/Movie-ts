@@ -1,11 +1,9 @@
 import React from 'react'
 import Title from '../../ulti/Title'
-
 const About = () => {
     return (
-        <div>
+        <div className="">
             <Title title={'About'} />
-            About
         </div>
     )
 }

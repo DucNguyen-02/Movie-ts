@@ -38,6 +38,17 @@
     }
 
     &-right {
+    }
+
+    &-login {
+        margin-left: 6px;
+        background-color: red;
+        color: #fff;
+        border-radius: 6px;
+        padding: 4px 12px;
+    }
+
+    &-form {
         position: relative;
     }
 
@@ -49,6 +60,7 @@
         border: none;
         outline: none;
     }
+
     &.fixed {
         background-color: #111;
         color: #fff;

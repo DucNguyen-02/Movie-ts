@@ -1,0 +1,26 @@
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+
+    &-title {
+        color: #fff;
+        font-size: 40px;
+    }
+
+    &-icon {
+        font-size: 40px;
+        color: #fff;
+    }
+
+    &-back {
+        background-color: red;
+        color: #fff;
+        padding: 8px 12px;
+        margin-top: 4px;
+        display: inline-block;
+        border-radius: 6px;
+    }
+}

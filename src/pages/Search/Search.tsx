@@ -14,6 +14,8 @@ const Search = () => {
     const searchParam = new URLSearchParams(location.search)
     const keyword: string | null = searchParam.get('query')
 
+    console.log(location)
+
     const fetchSearchNew = async (): Promise<void> => {
         const resp = await axios.get(
             `${URL}/search/multi?api_key=${API_KEY}&query=${keyword}&page=1`

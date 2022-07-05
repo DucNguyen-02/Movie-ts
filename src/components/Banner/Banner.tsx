@@ -1,35 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { FaPlay, FaInfo } from 'react-icons/fa'
-import requests, { BASE_URL, URL } from '../../constants/request'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper'
+import { FaInfo, FaPlay } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import 'swiper/scss/autoplay'
+import { Autoplay } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss'
+import 'swiper/scss/autoplay'
+import movieApi from '../../apis/movieAPI'
+import requests, { BASE_URL, URL } from '../../constants/request'
+import useFetch from '../../hooks/useFetch'
 import './banner.scss'
-import { BannerInterface } from '../../interfaces/interfaces'
-import axios from 'axios'
 
 const Banner = () => {
-    const [loading, setLoading] = useState<boolean>(true)
-    const [banners, setBanners] = useState<BannerInterface[]>()
-
-    const fetchBanner = async (): Promise<void> => {
-        const resp = await axios.get(`${URL}${requests.fetchTrending}`)
-        setLoading(false)
-        setBanners(resp.data.results)
-    }
+    const { data: banners }: any = useFetch({
+        fetcher: movieApi.getBanner,
+        url: `${URL}${requests.fetchTrending}`,
+    })
 
     const subDesc = (str: string, n: number): string => {
         return str?.length >= n ? `${str.substring(0, n)}...` : str
-    }
-
-    useEffect(() => {
-        fetchBanner()
-    }, [])
-
-    if (loading) {
-        return <h1>Loading...</h1>
     }
 
     return (
@@ -41,7 +28,7 @@ const Banner = () => {
             spaceBetween={10}
             slidesPerView={1}
         >
-            {banners?.map((banner) => {
+            {banners?.results?.map((banner: any) => {
                 return (
                     <SwiperSlide key={banner.id} className="banner">
                         <div

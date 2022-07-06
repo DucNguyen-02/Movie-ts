@@ -1,11 +1,8 @@
 import React from 'react'
-import Title from '../../ulti/Title'
+import useTitle from '../../hooks/useTitle'
 const About = () => {
-    return (
-        <div className="">
-            <Title title={'About'} />
-        </div>
-    )
+    useTitle('About')
+    return <div className=""></div>
 }
 
 export default About

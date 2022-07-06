@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import useWindowSize from '../../hooks/useWindowSize'
 import { RecentlyInterface } from '../../interfaces/interfaces'
 import ListItem from '../ItemMovie/ItemMovie'
 
 const Recently = ({ recently }: any) => {
+    const { width } = useWindowSize()
+
     const [slidePerView, setSlidePerView] = useState<number>((): number => {
-        return window.innerWidth <= 739 ? 3 : window.innerWidth <= 1023 ? 6 : 8
+        return width <= 739 ? 3 : width <= 1023 ? 6 : 8
     })
 
     useEffect(() => {
         const setSize = (): void => {
-            if (window.innerWidth <= 739) {
+            if (width <= 739) {
                 setSlidePerView(3)
-            } else if (window.innerWidth <= 1023) {
+            } else if (width <= 1023) {
                 setSlidePerView(6)
             } else {
                 setSlidePerView(8)
@@ -24,6 +27,7 @@ const Recently = ({ recently }: any) => {
 
         return () => window.removeEventListener('resize', setSize)
     }, [])
+
     return (
         <div>
             <div className="list">

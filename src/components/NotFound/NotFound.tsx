@@ -1,13 +1,14 @@
 import React from 'react'
 import { FaRegSadTear } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import Title from '../../ulti/Title'
+import useTitle from '../../hooks/useTitle'
 import './notFound.scss'
 
 const NotFound = () => {
+    useTitle('Page Not Found')
+
     return (
         <div className="notFound">
-            <Title title="Page Not Found" />
             <div className="notFound-wrapper">
                 <i className="notFound-icon">
                     <FaRegSadTear />

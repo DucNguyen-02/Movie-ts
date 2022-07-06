@@ -4,8 +4,8 @@ import { Link, useParams } from 'react-router-dom'
 import movieApi from '../../apis/movieAPI'
 import { API_KEY, BASE_URL, URL } from '../../constants/request'
 import useFetch from '../../hooks/useFetch'
+import useTitle from '../../hooks/useTitle'
 import { setMovieAtLocal } from '../../ulti/localStorage'
-import Title from '../../ulti/Title'
 import './detail.scss'
 
 const Detail = () => {
@@ -15,6 +15,8 @@ const Detail = () => {
         fetcher: movieApi.getMovieDetail,
         url: `${URL}/${type}/${id}?api_key=${API_KEY}`,
     })
+
+    console.log(movie)
 
     useEffect(() => {
         let movieType = type === 'tv' ? movie?.id : movie?.imdb_id
@@ -26,6 +28,8 @@ const Detail = () => {
         })
     }, [movie])
 
+    useTitle('Detail')
+
     return (
         <div
             className="banner-background"
@@ -33,8 +37,6 @@ const Detail = () => {
                 backgroundImage: `url(${BASE_URL}${movie?.backdrop_path})`,
             }}
         >
-            <Title title={'Detail'} />
-
             <div className="detail">
                 <img
                     className="detail-img"

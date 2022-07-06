@@ -6,6 +6,7 @@ import 'swiper/scss'
 import 'swiper/scss/autoplay'
 import movieApi from '../../apis/movieAPI'
 import requests, { BASE_URL, URL } from '../../constants/request'
+import subDesc from '../../helper/limitString'
 import useFetch from '../../hooks/useFetch'
 import './banner.scss'
 
@@ -14,10 +15,6 @@ const Banner = () => {
         fetcher: movieApi.getBanner,
         url: `${URL}${requests.fetchTrending}`,
     })
-
-    const subDesc = (str: string, n: number): string => {
-        return str?.length >= n ? `${str.substring(0, n)}...` : str
-    }
 
     return (
         <Swiper
@@ -44,14 +41,18 @@ const Banner = () => {
                                         banner?.title}
                                 </h2>
                                 <div className="banner-btn">
-                                    <Link to={`/detail/movie/${banner.id}`}>
+                                    <Link
+                                        to={`/detail/${banner.media_type}/${banner.id}`}
+                                    >
                                         <button className="mbtn banner-btn-play">
                                             {' '}
                                             <FaPlay className="banner-icon" />{' '}
                                             Play
                                         </button>
                                     </Link>
-                                    <Link to={`/detail/movie/${banner.id}`}>
+                                    <Link
+                                        to={`/detail/${banner.media_type}/${banner.id}`}
+                                    >
                                         <button className="mbtn banner-btn-info">
                                             <FaInfo className="banner-icon" />
                                             More Info

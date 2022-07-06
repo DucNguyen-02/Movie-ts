@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { URL_FILM } from '../../constants/request'
-import Title from '../../ulti/Title'
+import useTitle from '../../hooks/useTitle'
 import './watch.scss'
 
 const Watch = () => {
@@ -11,6 +11,8 @@ const Watch = () => {
     const handleNext = (): void => {
         setEsp(esp + 1)
     }
+
+    useTitle('Watch')
 
     if (type === 'tv') {
         return (
@@ -29,7 +31,6 @@ const Watch = () => {
     }
     return (
         <div className="watch">
-            <Title title={'Watch'} />
             <iframe
                 width="100%"
                 height="100%"

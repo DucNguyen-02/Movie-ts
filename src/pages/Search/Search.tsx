@@ -1,10 +1,10 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ItemMovie from '../../components/ItemMovie/ItemMovie'
 import { API_KEY, URL } from '../../constants/request'
+import useTitle from '../../hooks/useTitle'
 import { SearchInterface } from '../../interfaces/interfaces'
-import Title from '../../ulti/Title'
 import './search.scss'
 
 const Search = () => {
@@ -13,8 +13,6 @@ const Search = () => {
     const location = useLocation()
     const searchParam = new URLSearchParams(location.search)
     const keyword: string | null = searchParam.get('query')
-
-    console.log(location)
 
     const fetchSearchNew = async (): Promise<void> => {
         const resp = await axios.get(
@@ -41,9 +39,11 @@ const Search = () => {
     useEffect(() => {
         fetchSearchMore()
     }, [page])
+
+    useTitle(`Results for "${keyword}"`)
+
     return (
         <div className="search">
-            <Title title={`Results for "${keyword}"`} />
             <h2 className="movies-title">{`Results for "${keyword}"`}</h2>
             <ul className="movies-list">
                 {movies?.map((movie) => {

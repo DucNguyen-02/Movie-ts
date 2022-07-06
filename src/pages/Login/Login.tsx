@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react'
-import Title from '../../ulti/Title'
-import { FaGoogle, FaFacebookF, FaClipboardList } from 'react-icons/fa'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
-import './login.scss'
-import { Link } from 'react-router-dom'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import { useForm } from 'react-hook-form'
+import { FaClipboardList } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import * as yup from 'yup'
+import useTitle from '../../hooks/useTitle'
+import './login.scss'
 
 const schema = yup.object().shape({
     username: yup.string().required(),
@@ -31,13 +30,14 @@ const Login = () => {
         resolver: yupResolver(schema),
     })
 
+    useTitle('Login')
+
     const onSubmit = (data: any) => {
         console.log(data)
     }
 
     return (
         <div className="login login-bg">
-            <Title title="Login" />
             <div className="login-wrapper">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h2 className="form-label text-white my-4">Sign In</h2>
